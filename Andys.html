@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Andy's All About Fruits — Hollister, CA</title>
+<meta name="description" content="Fresh smoothies, cold-pressed juices, wheatgrass shots, and fruit bouquets in downtown Hollister. 4.6 stars on Google.">
+<meta name="theme-color" content="#FF6B3D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--papaya:#FF6B3D;--papaya-deep:#E84B1F;--mango:#FFB627;--kiwi:#7FB800;--kiwi-deep:#4F8A0B;--berry:#C8195F;--cream:#FFF7E8;--cream-warm:#FBE9C8;--ink:#1F1410;--ink-soft:#4A2F22}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden;font-size:16px}
+::selection{background:var(--papaya);color:var(--cream)}
+img{max-width:100%;display:block}
+.display{font-family:'Fraunces',serif;font-weight:900;letter-spacing:-0.03em;line-height:0.92}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,247,232,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(31,20,16,0.08)}
+.logo{font-family:'Fraunces',serif;font-weight:900;font-size:22px;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px}
+.logo-dot{width:10px;height:10px;background:var(--papaya);border-radius:50%;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:0.65}}
+.nav-links{display:flex;gap:16px;align-items:center}
+.nav-links .desktop-only{display:none}
+.nav-cta{background:var(--ink);color:var(--cream);padding:9px 16px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s,transform 0.2s}
+.nav-cta:active{background:var(--papaya-deep);transform:scale(0.97)}
+
+.hero{padding:88px 20px 40px;position:relative;overflow:hidden}
+.hero-blob-1,.hero-blob-2{position:absolute;border-radius:50%;filter:blur(70px);z-index:0;pointer-events:none}
+.hero-blob-1{width:320px;height:320px;background:var(--mango);top:-80px;right:-100px;opacity:0.4}
+.hero-blob-2{width:280px;height:280px;background:var(--kiwi);bottom:-60px;left:-100px;opacity:0.25}
+.hero-text{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--papaya-deep);margin-bottom:20px;padding:6px 12px;border:1px solid var(--papaya);border-radius:100px;background:rgba(255,107,61,0.08)}
+.eyebrow::before{content:'';width:5px;height:5px;background:var(--papaya);border-radius:50%}
+h1.hero-title{font-size:clamp(48px,14vw,72px);color:var(--ink);margin-bottom:22px}
+.hero-title .accent{color:var(--papaya);font-style:italic;font-weight:500;position:relative;display:inline-block}
+.hero-title .accent::after{content:'';position:absolute;left:0;bottom:6px;width:100%;height:10px;background:var(--mango);z-index:-1;opacity:0.55;transform:skewX(-8deg)}
+.hero-sub{font-size:16px;color:var(--ink-soft);margin-bottom:26px;max-width:460px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:14px 22px;border-radius:100px;font-weight:700;font-size:14px;text-decoration:none;transition:transform 0.2s,background 0.2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;flex:1 1 auto;justify-content:center;white-space:nowrap}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:active{background:var(--papaya-deep);transform:scale(0.97)}
+.btn-secondary{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-secondary:active{background:var(--ink);color:var(--cream);transform:scale(0.97)}
+
+.hero-visual{position:relative;margin-top:36px;height:440px;z-index:2}
+.hero-card{position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 24px 50px -12px rgba(31,20,16,0.28)}
+.hero-card img{width:100%;height:100%;object-fit:cover}
+.hero-card-1{width:62%;height:320px;top:0;left:4%;transform:rotate(-3deg);z-index:2}
+.hero-card-2{width:50%;height:230px;top:130px;right:0;transform:rotate(5deg);background:linear-gradient(160deg,var(--kiwi) 0%,var(--kiwi-deep) 100%);z-index:3;padding:18px;color:var(--cream);display:flex;flex-direction:column;justify-content:space-between}
+.hero-card-2-tag{font-size:10px;text-transform:uppercase;letter-spacing:0.15em;opacity:0.85}
+.hero-card-2-title{font-family:'Fraunces',serif;font-weight:900;font-size:32px;line-height:0.95}
+.hero-card-3{width:152px;bottom:0;left:8%;transform:rotate(-5deg);background:var(--cream);padding:16px;z-index:4;box-shadow:0 18px 36px rgba(31,20,16,0.18);border-radius:18px}
+.star-row{color:var(--mango);font-size:16px;letter-spacing:2px}
+.rating-num{font-family:'Fraunces',serif;font-weight:900;font-size:28px;line-height:1;margin-top:4px}
+.rating-text{font-size:10px;color:var(--ink-soft);margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+
+.hero-strip{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-top:24px;border-top:1px solid rgba(31,20,16,0.15);position:relative;z-index:2}
+.stat-num{font-family:'Fraunces',serif;font-weight:700;font-size:28px;color:var(--ink);line-height:1}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-top:4px}
+
+.marquee{background:var(--ink);color:var(--cream);padding:16px 0;overflow:hidden}
+.marquee-track{display:flex;gap:36px;white-space:nowrap;animation:scroll 30s linear infinite;font-family:'Fraunces',serif;font-size:22px;font-weight:700}
+.marquee-track span{display:flex;align-items:center;gap:36px}
+.marquee-dot{color:var(--papaya)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.strip{padding:56px 0 30px}
+.strip-head{padding:0 20px;margin-bottom:22px}
+.strip-head h3{font-family:'Fraunces',serif;font-weight:900;font-size:32px;line-height:1;letter-spacing:-0.02em;margin-top:6px}
+.strip-head h3 em{font-style:italic;font-weight:500;color:var(--papaya-deep)}
+.gallery{display:flex;gap:12px;overflow-x:auto;padding:0 20px 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gallery::-webkit-scrollbar{display:none}
+.gallery-item{flex:0 0 auto;width:240px;height:300px;border-radius:20px;overflow:hidden;scroll-snap-align:start;position:relative;box-shadow:0 12px 30px -10px rgba(31,20,16,0.22);background:var(--cream-warm)}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+.gallery-item .label{position:absolute;bottom:14px;left:14px;background:var(--cream);color:var(--ink);padding:7px 13px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase}
+
+.section-head{margin-bottom:32px}
+.section-tag{font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--papaya-deep);margin-bottom:12px;font-weight:700}
+.section-title{font-size:clamp(40px,11vw,64px);color:var(--ink);margin-bottom:16px}
+.section-desc{color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:460px}
+
+.menu{padding:50px 20px 80px;position:relative}
+.menu-grid{display:grid;gap:16px}
+.menu-card{background:var(--cream-warm);border-radius:24px;position:relative;overflow:hidden;transition:transform 0.3s cubic-bezier(0.2,0.8,0.2,1);display:flex;flex-direction:row;min-height:160px}
+.menu-card:active{transform:scale(0.985)}
+.menu-card.papaya{background:var(--papaya);color:var(--cream)}
+.menu-card.kiwi{background:var(--kiwi);color:var(--cream)}
+.menu-card.berry{background:var(--berry);color:var(--cream)}
+.menu-card.mango{background:var(--mango);color:var(--ink)}
+.menu-card-img{flex:0 0 130px;overflow:hidden;position:relative}
+.menu-card-img img{width:100%;height:100%;object-fit:cover}
+.menu-card-body{padding:20px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.menu-num{font-family:'Fraunces',serif;font-weight:300;font-size:14px;opacity:0.55;margin-bottom:4px}
+.menu-name{font-family:'Fraunces',serif;font-weight:900;font-size:26px;line-height:0.95;margin-bottom:8px;letter-spacing:-0.02em}
+.menu-desc{font-size:13px;line-height:1.5;opacity:0.88}
+.menu-card-noimg .menu-card-body{padding:24px}
+.menu-card-noimg .menu-name{font-size:30px}
+
+.about{padding:70px 20px;background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:-100px;right:-100px;width:280px;height:280px;background:var(--papaya);border-radius:50%;filter:blur(100px);opacity:0.4}
+.about-inner{position:relative;z-index:2}
+.about h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(36px,11vw,56px);line-height:0.95;letter-spacing:-0.02em;margin-bottom:22px}
+.about h2 em{color:var(--mango);font-style:italic;font-weight:400}
+.about p{font-size:16px;line-height:1.7;color:rgba(255,247,232,0.82);margin-bottom:16px}
+.about-image{border-radius:24px;overflow:hidden;aspect-ratio:4/5;position:relative;transform:rotate(-2deg);box-shadow:0 22px 50px rgba(0,0,0,0.4);margin-top:36px;max-width:380px}
+.about-image img{width:100%;height:100%;object-fit:cover}
+.about-image-tag{position:absolute;bottom:18px;left:18px;background:var(--cream);color:var(--ink);padding:10px 16px;border-radius:100px;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+
+.reviews{padding:70px 20px 80px;background:var(--cream)}
+.reviews-head{text-align:center;margin-bottom:36px}
+.reviews-head h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(40px,12vw,64px);line-height:1;letter-spacing:-0.02em;margin-bottom:14px}
+.big-rating{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:9px 18px;background:var(--cream-warm);border-radius:100px;font-size:14px}
+.big-rating strong{font-family:'Fraunces',serif;font-size:20px}
+.big-rating .stars{color:var(--mango);letter-spacing:2px}
+.reviews-grid{display:grid;gap:16px}
+.review-card{background:var(--cream-warm);padding:26px 22px;border-radius:22px;position:relative}
+.review-card:nth-child(2){background:var(--mango)}
+.review-card:nth-child(4){background:var(--papaya);color:var(--cream)}
+.review-card .quote{font-family:'Fraunces',serif;font-size:50px;line-height:0.5;color:var(--papaya);margin-bottom:14px;height:24px}
+.review-card:nth-child(4) .quote{color:var(--cream)}
+.review-card p{font-family:'Fraunces',serif;font-size:17px;line-height:1.45;color:var(--ink)}
+.review-card:nth-child(4) p{color:var(--cream)}
+.review-attr{margin-top:16px;font-size:12px;color:var(--ink-soft);letter-spacing:0.05em;font-weight:500}
+.review-card:nth-child(4) .review-attr{color:rgba(255,247,232,0.75)}
+.review-card .stars-inline{color:var(--mango);font-size:13px;letter-spacing:1.5px;margin-bottom:10px}
+.review-card:nth-child(4) .stars-inline{color:var(--cream)}
+
+.visit{padding:70px 20px 80px;background:var(--papaya);color:var(--cream);position:relative;overflow:hidden}
+.visit::before{content:'🍊';position:absolute;font-size:280px;top:-50px;right:-40px;opacity:0.08;transform:rotate(-15deg);pointer-events:none}
+.visit-inner{position:relative;z-index:2}
+.visit h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(44px,13vw,72px);line-height:0.92;letter-spacing:-0.03em;margin-bottom:30px}
+.visit h2 em{font-style:italic;font-weight:400}
+.info-block{margin-bottom:22px}
+.info-label{font-size:11px;text-transform:uppercase;letter-spacing:0.18em;opacity:0.75;margin-bottom:6px}
+.info-value{font-family:'Fraunces',serif;font-size:19px;font-weight:500;line-height:1.3}
+.info-value a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,247,232,0.45)}
+.hours-list{list-style:none;border-top:1px solid rgba(255,247,232,0.25);margin-top:36px}
+.hours-list li{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(255,247,232,0.25);font-size:14px}
+.hours-list li.today{color:var(--ink);background:var(--cream);padding:13px 14px;border-radius:10px;margin:4px 0;font-weight:700;border-bottom-color:transparent}
+.hours-list .day{font-weight:500}
+.visit-cta{margin-top:32px;display:flex;gap:10px;flex-wrap:wrap}
+.btn-cream{background:var(--cream);color:var(--ink)}
+.btn-cream:active{background:var(--ink);color:var(--cream);transform:scale(0.97)}
+.btn-outline-cream{background:transparent;color:var(--cream);border:1.5px solid var(--cream)}
+.btn-outline-cream:active{background:var(--cream);color:var(--papaya-deep);transform:scale(0.97)}
+
+footer{background:var(--ink);color:var(--cream);padding:50px 20px 28px}
+.footer-brand{font-family:'Fraunces',serif;font-weight:900;font-size:44px;line-height:0.9;letter-spacing:-0.03em;margin-bottom:14px}
+.footer-brand em{font-style:italic;font-weight:400;color:var(--papaya)}
+.footer-tagline{font-size:14px;opacity:0.7;margin-bottom:36px;max-width:320px}
+.footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:36px}
+.footer-col h4{font-size:11px;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:14px;opacity:0.55}
+.footer-col a,.footer-col p{display:block;color:var(--cream);text-decoration:none;font-size:14px;margin-bottom:8px;opacity:0.85}
+.footer-bottom{padding-top:22px;border-top:1px solid rgba(255,247,232,0.15);font-size:12px;opacity:0.5;line-height:1.7}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s ease-out,transform 0.8s ease-out}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(min-width:640px){
+  .hero{padding:110px 32px 60px}
+  .hero-visual{height:500px;max-width:540px;margin-left:auto;margin-right:auto}
+  .menu,.about,.reviews,.visit{padding-left:32px;padding-right:32px}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .menu-card-img{flex:0 0 160px}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .footer-cols{grid-template-columns:2fr 1fr 1fr}
+  .gallery{padding-left:32px;padding-right:32px}
+  .strip-head{padding-left:32px;padding-right:32px}
+}
+
+@media(min-width:960px){
+  nav{padding:18px 40px}
+  .logo{font-size:24px}
+  .nav-links .desktop-only{display:inline;font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
+  .nav-links{gap:28px}
+  .hero{padding:130px 40px 70px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;min-height:100vh}
+  .hero-visual{margin-top:0;height:580px;max-width:none}
+  .hero-card-1{width:300px;height:380px;top:30px;left:auto;right:80px}
+  .hero-card-2{width:220px;height:280px;top:250px;right:280px}
+  .hero-card-3{width:180px;bottom:auto;top:420px;right:40px;left:auto}
+  .marquee{padding:22px 0}
+  .marquee-track{font-size:28px;gap:50px}
+  .marquee-track span{gap:50px}
+  .strip{padding:80px 0 40px}
+  .strip-head{padding-left:40px;padding-right:40px;max-width:1300px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;align-items:end}
+  .strip-head h3{font-size:44px}
+  .gallery{padding-left:40px;max-width:1300px;margin-left:auto;margin-right:auto}
+  .gallery-item{width:320px;height:400px}
+  .menu{padding:110px 40px}
+  .section-head{max-width:1300px;margin:0 auto 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+  .menu-grid{max-width:1300px;margin:0 auto;grid-template-columns:repeat(3,1fr);gap:22px}
+  .menu-card{flex-direction:column;min-height:380px}
+  .menu-card-img{flex:0 0 200px;width:100%}
+  .menu-card-body{padding:28px}
+  .menu-name{font-size:32px}
+  .about{padding:110px 40px}
+  .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-image{margin-top:0;max-width:none}
+  .reviews{padding:110px 40px}
+  .reviews-head{margin-bottom:60px}
+  .reviews-grid{max-width:1200px;margin:0 auto;grid-template-columns:repeat(4,1fr);gap:20px}
+  .review-card:nth-child(3){transform:translateY(20px)}
+  .visit{padding:110px 40px}
+  .visit-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  .hours-list{margin-top:0}
+  footer{padding:60px 40px 30px}
+  .footer-cols{max-width:1200px;margin:0 auto 36px;grid-template-columns:2fr 1fr 1fr;gap:60px}
+  .footer-brand{font-size:56px}
+  .footer-bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span class="logo-dot"></span> Andy's</div>
+  <div class="nav-links">
+    <a href="#menu" class="desktop-only">Menu</a>
+    <a href="#about" class="desktop-only">About</a>
+    <a href="#reviews" class="desktop-only">Reviews</a>
+    <a href="#visit" class="desktop-only">Visit</a>
+    <a href="tel:+18316389585" class="nav-cta">Call</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-text">
+    <div class="eyebrow reveal">Hollister, California · 4.6 ★</div>
+    <h1 class="display hero-title reveal">All <span class="accent">about</span><br>the fruit.</h1>
+    <p class="hero-sub reveal">Hand-blended smoothies, fresh juices, wheatgrass shots, and fruit bouquets — made by people who actually care. No syrups. No shortcuts. Just good fruit, treated right.</p>
+    <div class="btn-row reveal">
+      <a href="#menu" class="btn btn-primary">See the Menu →</a>
+      <a href="tel:+18316389585" class="btn btn-secondary">(831) 638-9585</a>
+    </div>
+    <div class="hero-strip reveal">
+      <div><div class="stat-num">4.6★</div><div class="stat-label">Google</div></div>
+      <div><div class="stat-num">66+</div><div class="stat-label">Reviews</div></div>
+      <div><div class="stat-num">7</div><div class="stat-label">Days/Wk</div></div>
+    </div>
+  </div>
+  <div class="hero-visual reveal">
+    <div class="hero-card hero-card-1">
+      <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=800&q=80" alt="Smoothie">
+    </div>
+    <div class="hero-card hero-card-2">
+      <div class="hero-card-2-tag">Hand-blended</div>
+      <div class="hero-card-2-title">Fresh<br>Daily</div>
+    </div>
+    <div class="hero-card hero-card-3">
+      <div class="star-row">★ ★ ★ ★ ★</div>
+      <div class="rating-num">4.6</div>
+      <div class="rating-text">on Google Maps</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>SMOOTHIES <span class="marquee-dot">●</span> FRESH JUICES <span class="marquee-dot">●</span> WHEATGRASS SHOTS <span class="marquee-dot">●</span> FRUIT BOUQUETS <span class="marquee-dot">●</span> GIFT CARDS <span class="marquee-dot">●</span> </span>
+    <span>SMOOTHIES <span class="marquee-dot">●</span> FRESH JUICES <span class="marquee-dot">●</span> WHEATGRASS SHOTS <span class="marquee-dot">●</span> FRUIT BOUQUETS <span class="marquee-dot">●</span> GIFT CARDS <span class="marquee-dot">●</span> </span>
+  </div>
+</div>
+
+<section class="strip">
+  <div class="strip-head reveal">
+    <div>
+      <div class="section-tag">Fresh from the blender</div>
+      <h3>Made with <em>love.</em></h3>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item reveal">
+      <img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fresh fruit" loading="lazy">
+      <div class="label">Real fruit</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600&q=80" alt="Smoothie" loading="lazy">
+      <div class="label">Hand-blended</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=600&q=80" alt="Juice" loading="lazy">
+      <div class="label">Cold-pressed</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1502741126161-b048400d085d?w=600&q=80" alt="Tropical" loading="lazy">
+      <div class="label">Bright flavors</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=600&q=80" alt="Smoothie" loading="lazy">
+      <div class="label">Made fresh</div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="section-head">
+    <div class="reveal">
+      <div class="section-tag">What We Make</div>
+      <h2 class="display section-title">The good stuff.</h2>
+    </div>
+    <p class="section-desc reveal">Five things, done well. Every order is hand-made when you order it — that's why your strawberry banana actually tastes like strawberry and banana.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card papaya reveal">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&q=80" alt="Smoothie" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-num">01</div>
+        <div class="menu-name">Smoothies</div>
+        <div class="menu-desc">Tons of options — classics like strawberry banana, plus creative blends like banana, peanut butter & milk.</div>
+      </div>
+    </div>
+    <div class="menu-card kiwi reveal">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=400&q=80" alt="Juice" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-num">02</div>
+        <div class="menu-name">Fresh Juices</div>
+        <div class="menu-desc">Cold-pressed and bright. Single fruits, custom mixes, and the kind your body says thank you for.</div>
+      </div>
+    </div>
+    <div class="menu-card berry reveal">
+      <div class="menu-card-img">
+        <img src="images/wheatgrass-shot.png" alt="Wheatgrass shot" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-num">03</div>
+        <div class="menu-name">Grass Shots</div>
+        <div class="menu-desc">Wheatgrass shots for when you need a real boost — a tiny green espresso for your immune system.</div>
+      </div>
+    </div>
+    <div class="menu-card mango reveal">
+      <div class="menu-card-img">
+        <img src="images/fruit-bouquet.png" alt="Fruit bouquet" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-num">04</div>
+        <div class="menu-name">Fruit Bouquets</div>
+        <div class="menu-desc">Gift-worthy arrangements made from the freshest seasonal fruit. Birthdays, thank-yous, just-because.</div>
+      </div>
+    </div>
+    <div class="menu-card menu-card-noimg reveal">
+      <div class="menu-card-body">
+        <div class="menu-num">05</div>
+        <div class="menu-name" style="color:var(--ink);">Gift Cards</div>
+        <div class="menu-desc" style="color:var(--ink-soft);">The easiest gift to get right. Available in-store any day we're open.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <h2>A little<br>shop with a<br><em>big</em> heart.</h2>
+      <p>Andy's All About Fruits is the kind of place that's increasingly rare — a small, family-run smoothie shop where the person handing you your drink is the same one who blended it.</p>
+      <p>Tucked at 193 McCray Street in Hollister, we've built our reputation one cup at a time. Folks come in for a quick boost between errands and end up regulars.</p>
+      <p>Five things, done with care. Come hang out.</p>
+    </div>
+    <div class="about-image reveal">
+      <img src="https://images.unsplash.com/photo-1638176067000-9e2bbb4dde15?w=800&q=80" alt="Fresh ingredients">
+      <div class="about-image-tag">Made fresh, daily.</div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="reviews-head reveal">
+    <div class="section-tag">What People Say</div>
+    <h2>Hollister<br>has feelings.</h2>
+    <div class="big-rating">
+      <span class="stars">★★★★★</span>
+      <strong>4.6</strong>
+      <span style="color:var(--ink-soft);">· 66+ Google reviews</span>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="quote">"</div>
+      <div class="stars-inline">★★★★★</div>
+      <p>I was not expecting this to be such a good smoothie! And to be $7 and some change out the door?! Found my new spot.</p>
+      <div class="review-attr">— Google Reviewer</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="quote">"</div>
+      <div class="stars-inline">★★★★★</div>
+      <p>This kind of shop is a rarity in the region. My favorite is the Vampire when my iron needs a boost. A pleasant surprise.</p>
+      <div class="review-attr">— Google Reviewer</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="quote">"</div>
+      <div class="stars-inline">★★★★★</div>
+      <p>Delicious smoothies, welcoming atmosphere and gracious staff. Absolutely delightful.</p>
+      <div class="review-attr">— Google Reviewer</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="quote">"</div>
+      <div class="stars-inline">★★★★★</div>
+      <p>Great smoothies, juices, grass shots, and fruit bouquets. Healthy and fun treats. They have gift cards too!</p>
+      <div class="review-attr">— Google Reviewer</div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="visit-inner">
+    <div class="reveal">
+      <h2>Come <em>say hi.</em></h2>
+      <div class="info-block">
+        <div class="info-label">Address</div>
+        <div class="info-value">
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJWZXyJC32kYAR0cq_hfC9zEc" target="_blank" rel="noopener">193 McCray St #302<br>Hollister, CA 95023</a>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Phone</div>
+        <div class="info-value"><a href="tel:+18316389585">(831) 638-9585</a></div>
+      </div>
+      <div class="visit-cta">
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJWZXyJC32kYAR0cq_hfC9zEc" target="_blank" rel="noopener" class="btn btn-cream">Get Directions</a>
+        <a href="tel:+18316389585" class="btn btn-outline-cream">Call to Order</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="info-label" style="margin-top:36px;margin-bottom:14px;">Hours</div>
+      <ul class="hours-list" id="hoursList">
+        <li data-day="1"><span class="day">Monday</span><span>8:00 AM – 6:00 PM</span></li>
+        <li data-day="2"><span class="day">Tuesday</span><span>8:00 AM – 6:00 PM</span></li>
+        <li data-day="3"><span class="day">Wednesday</span><span>8:00 AM – 6:00 PM</span></li>
+        <li data-day="4"><span class="day">Thursday</span><span>8:00 AM – 6:00 PM</span></li>
+        <li data-day="5"><span class="day">Friday</span><span>8:00 AM – 6:00 PM</span></li>
+        <li data-day="6"><span class="day">Saturday</span><span>8:00 AM – 6:00 PM</span></li>
+        <li data-day="0"><span class="day">Sunday</span><span>8:30 AM – 5:00 PM</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Andy's<br><em>All About Fruits.</em></div>
+  <p class="footer-tagline">A small smoothie shop in Hollister, CA. Big on flavor. Bigger on hospitality.</p>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJWZXyJC32kYAR0cq_hfC9zEc" target="_blank" rel="noopener">193 McCray St #302</a>
+      <p>Hollister, CA 95023</p>
+      <a href="tel:+18316389585">(831) 638-9585</a>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Hours</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Andy's All About Fruits<br>Made with real fruit.</div>
+</footer>
+
+<script>
+(function(){
+  var today = new Date().getDay();
+  var li = document.querySelector('#hoursList li[data-day="'+today+'"]');
+  if(li) li.classList.add('today');
+})();
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){
+    if(e.isIntersecting){
+      setTimeout(function(){e.target.classList.add('in');}, i*60);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+
+</body>
+</html>
